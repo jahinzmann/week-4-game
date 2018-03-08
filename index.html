@@ -9,25 +9,86 @@ Any way to package that in an interesting context like that described above?
 
 How about a hacking theme? 
 Steal the Death Star plans from Scarif... 
-'hack' into the imperial computer by guessing the correct series of numbers to enter the passcode!
+'hack' into the imperial computer by guessing the correct series of numbers to enter the passcode!-->
 
-Use the JPEG of the Scarif base 
+<html>
+<!--browser-sync start --watch --server --directory --files='index.html, assets/*/*.css, assets/*/*.js' -->
 
-now, the game mechanics:
+<head>
+    <meta charset="utf-8">
+    <title>Star Wars RPG: Scarif Infiltration!</title>
+    <meta name="descrption"> 
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> 
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--Need the bootstrap link-->
+    <!--Need the jquery link-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-Have some buttons (search for a Star Wars theme)... Have each represent a certain increment
+</head>
 
-write functions for each button: they should also be variations of the same thing 
-increase by X-increment.
+<body> 
 
-Look for buttons on <j-query 
+<h1>Hack into the Scarif Imperial Base computer to retreive the Death Star plans.</h1>
 
-Create a random number generator to create the number the player has to guess.
+<!--Use the JPEG of the Scarif base (does that happen here, or in CSS?)-->
 
-Should the player know they number they're supposed to guess? Not sure yet...
+<!--Gonna need some buttons and displays-->
 
-Once they guess the number, they should get a reward with a new image... 
+<!--Have some buttons (search for a Star Wars theme)... Have each represent a certain increment-->
 
-and that's that.
+<div>
+        <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default">1</button>
+        <button type="button" class="btn btn-default">5</button>
+        <button type="button" class="btn btn-default">10</button>
+        <button type="button" class="btn btn-default">20</button>
+      </div>
+</div>
 
 
+<div>
+    <button type="button" class="btn btn-default" id="submit">Submit</button>
+</div>
+
+<script>
+  
+//Create a random number generator to create the target number the player has to guess.
+  var targetNumber = Math.floor(Math.random()*99)+1
+    
+//now, the game mechanics:
+
+//Link the buttons to the html buttons
+    $("button").on("click", function() {
+        console.log("hello jerk");
+        console.log(this.text);
+    });
+//write functions for each button: they should also be variations of the same thing 
+//increase by X-increment. (maybe one by one, five, ten, and twenty?)
+
+//There needs to be a "submit"
+
+
+//Should the player know the number they're supposed to guess? Not sure yet...
+
+//Once they guess the number, they should get a reward with a new image... 
+
+
+//win-loss counter
+if (counter === targetNumber) {
+      alert("You win!");
+    }
+
+    else if (counter > targetNumber) {
+      alert("You lose!!");
+    } else (counter < targetNumber) {
+      alert("You lose!!");
+    }
+
+//and that's that
+
+
+</script>
+
+</body>
