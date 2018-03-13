@@ -40,11 +40,11 @@ Steal the Death Star plans from Scarif...
 
 <div>
         <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-default">1</button>
-        <button type="button" class="btn btn-default">5</button>
-        <button type="button" class="btn btn-default">10</button>
-        <button type="button" class="btn btn-default">20</button>
-      </div>
+            <button type="button" class="btn btn-default" id="1">1</button>
+            <button type="button" class="btn btn-default" id="5">5</button>
+            <button type="button" class="btn btn-default" id="10">10</button>
+            <button type="button" class="btn btn-default" id="20">20</button>
+        </div>
 </div>
 
 
@@ -52,23 +52,51 @@ Steal the Death Star plans from Scarif...
     <button type="button" class="btn btn-default" id="submit">Submit</button>
 </div>
 
-<script>
-  
-//Create a random number generator to create the target number the player has to guess.
-  var targetNumber = Math.floor(Math.random()*99)+1
+<script type="text/javascript">
+//Create an IFFE wrapper
+   // $(document).ready(function() {
+    (function(){
+
     
+
+   
+//Create a random number generator to create the target number the player has to guess.
+  function unlockNumber() {
+      
+  return Math.floor(Math.random()*100)+1
+  
+}
+var targetNumber = unlockNumber();
+console.log(targetNumber);
+//user's guess input
+var userGuess = 0;
+
+//win-loss counter
+var counter;
+
 //now, the game mechanics:
 
 //Link the buttons to the html buttons
-    $("button").on("click", function() {
-        console.log("hello jerk");
-        console.log(this.text);
-    });
+
+var userIncremented = 0;
+
+    $("#1").on("click", function click1(userGuess) {
+         return userGuess++;
+        // userIncremented = userGuess;
+        // return userIncremented;
+        // console.log(userIncremented);
+    })
+
+    console.log(userGuess)
+    console.log(userIncremented)
 //write functions for each button: they should also be variations of the same thing 
 //increase by X-increment. (maybe one by one, five, ten, and twenty?)
+$("#1").on("click", function() {
+    userGuess++
+     console.log(userGuess);
+});
 
 //There needs to be a "submit"
-
 
 //Should the player know the number they're supposed to guess? Not sure yet...
 
@@ -76,19 +104,26 @@ Steal the Death Star plans from Scarif...
 
 
 //win-loss counter
-if (counter === targetNumber) {
-      alert("You win!");
+
+function accessGranted() {
+     if (userGuess === targetNumber) {
+       alert("Access Granted! You win!");
+       counter++;
     }
 
-    else if (counter > targetNumber) {
+     else if (userGuess > targetNumber) {
       alert("You lose!!");
-    } else (counter < targetNumber) {
-      alert("You lose!!");
+       counter--;
+     } else if (userGuess < targetNumber) {
+       alert("You lose!!");
+      counter--;
     }
+}
 
 //and that's that
 
-
+ })(window); //End Document.ready
+ 
 </script>
 
 </body>
