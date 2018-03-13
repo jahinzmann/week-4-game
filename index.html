@@ -92,11 +92,32 @@ var userIncremented = 0;
 //write functions for each button: they should also be variations of the same thing 
 //increase by X-increment. (maybe one by one, five, ten, and twenty?)
 $("#1").on("click", function() {
-    userGuess++
+    userGuess++;
      console.log(userGuess);
 });
 
+$("#5").on("click", function() {
+    userGuess+5;
+     console.log(userGuess);
+});
+
+$("#10").on("click", function() {
+    userGuess+10;
+     console.log(userGuess);
+});
+
+$("#20").on("click", function() {
+    userGuess+20;
+     console.log(userGuess);
+});
+
+
 //There needs to be a "submit"
+$("#submit").on("click", function() {
+    return(userGuess);
+    console.log(userGuess);
+});
+
 
 //Should the player know the number they're supposed to guess? Not sure yet...
 
