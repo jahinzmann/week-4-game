@@ -47,6 +47,10 @@ Steal the Death Star plans from Scarif...
         </div>
 </div>
 
+<div id="userInput">
+
+</div>
+
 
 <div>
     <button type="button" class="btn btn-default" id="submit">Submit</button>
@@ -71,6 +75,7 @@ console.log(targetNumber);
 //user's guess input
 var userGuess = 0;
 
+var userIncremented = 0;
 //win-loss counter
 var counter;
 
@@ -78,7 +83,7 @@ var counter;
 
 //Link the buttons to the html buttons
 
-var userIncremented = 0;
+
 
     $("#1").on("click", function click1(userGuess) {
          return userGuess++;
@@ -91,33 +96,40 @@ var userIncremented = 0;
     console.log(userIncremented)
 //write functions for each button: they should also be variations of the same thing 
 //increase by X-increment. (maybe one by one, five, ten, and twenty?)
-$("#1").on("click", function() {
+$("#1").on("click", function(userIncremented) {
     userGuess++;
-     console.log(userGuess);
+    return(userGuess++)
+     console.log(userGuess++);
 });
 
-$("#5").on("click", function() {
+$("#5").on("click", function(userIncremented) {
     userGuess+5;
-     console.log(userGuess);
+     console.log(userGuess+5);
 });
 
-$("#10").on("click", function() {
+$("#10").on("click", function(userIncremented) {
     userGuess+10;
-     console.log(userGuess);
+     console.log(userGuess+10);
 });
 
-$("#20").on("click", function() {
+$("#20").on("click", function(userIncremented) {
     userGuess+20;
-     console.log(userGuess);
+     console.log(userGuess+20);
 });
 
 
 //There needs to be a "submit"
 $("#submit").on("click", function() {
-    return(userGuess);
-    console.log(userGuess);
+    return(userIncremented);
+    console.log(userIncremented);
 });
 
+//now we need to make sure the input from each button actually adds properly... And then writes to the page
+
+function userIncremented() {
+    userGuess
+    document.getElementById("#userInput").innerHTML = this.userIncremented
+}
 
 //Should the player know the number they're supposed to guess? Not sure yet...
 
