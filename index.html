@@ -85,51 +85,49 @@ var counter;
 
 
 
-    $("#1").on("click", function click1(userGuess) {
-         return userGuess++;
-        // userIncremented = userGuess;
-        // return userIncremented;
-        // console.log(userIncremented);
-    })
+//    $("#1").on("click", function click1(userGuess) {
+//          return userGuess++;
+//         // userIncremented = userGuess;
+//         // return userIncremented;
+//         // console.log(userIncremented);
+//     }) 
 
     console.log(userGuess)
     console.log(userIncremented)
 //write functions for each button: they should also be variations of the same thing 
 //increase by X-increment. (maybe one by one, five, ten, and twenty?)
-$("#1").on("click", function(userIncremented) {
+$("#1").on("click", function() {
     userGuess++;
-    return(userGuess++)
-     console.log(userGuess++);
+    console.log(userGuess);
 });
 
-$("#5").on("click", function(userIncremented) {
-    userGuess+5;
-     console.log(userGuess+5);
+$("#5").on("click", function() {
+    userGuess = userGuess + 5;
+     console.log(userGuess);
 });
 
-$("#10").on("click", function(userIncremented) {
-    userGuess+10;
-     console.log(userGuess+10);
+$("#10").on("click", function() {
+    userGuess = userGuess + 10;
+     console.log(userGuess);
 });
 
-$("#20").on("click", function(userIncremented) {
-    userGuess+20;
-     console.log(userGuess+20);
+$("#20").on("click", function() {
+    userGuess = userGuess + 20;
+     console.log(userGuess);
 });
 
 
 //There needs to be a "submit"
 $("#submit").on("click", function() {
-    return(userIncremented);
-    console.log(userIncremented);
+ accessGranted();  
 });
 
 //now we need to make sure the input from each button actually adds properly... And then writes to the page
 
-function userIncremented() {
-    userGuess
-    document.getElementById("#userInput").innerHTML = this.userIncremented
-}
+// function userIncremented() {
+//     userGuess
+//     document.getElementById("#userInput").innerHTML = this.userIncremented
+// }
 
 //Should the player know the number they're supposed to guess? Not sure yet...
 
@@ -142,15 +140,10 @@ function accessGranted() {
      if (userGuess === targetNumber) {
        alert("Access Granted! You win!");
        counter++;
-    }
-
-     else if (userGuess > targetNumber) {
-      alert("You lose!!");
-       counter--;
-     } else if (userGuess < targetNumber) {
-       alert("You lose!!");
-      counter--;
-    }
+    } else {
+        counter--;
+        alert("You Lose!")
+    };
 }
 
 //and that's that
