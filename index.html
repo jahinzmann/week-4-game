@@ -98,24 +98,29 @@ var counter;
 //increase by X-increment. (maybe one by one, five, ten, and twenty?)
 $("#1").on("click", function() {
     userGuess++;
-    console.log(userGuess);
+    userTotal();
 });
 
 $("#5").on("click", function() {
     userGuess = userGuess + 5;
-     console.log(userGuess);
+    userTotal();
 });
 
 $("#10").on("click", function() {
     userGuess = userGuess + 10;
-     console.log(userGuess);
+    userTotal();
 });
 
 $("#20").on("click", function() {
     userGuess = userGuess + 20;
-     console.log(userGuess);
+    userTotal();
 });
 
+//user displays
+function userTotal() {
+    $("#userInput").html(userGuess)
+    console.log(userGuess);
+}
 
 //There needs to be a "submit"
 $("#submit").on("click", function() {
@@ -139,11 +144,14 @@ $("#submit").on("click", function() {
 function accessGranted() {
      if (userGuess === targetNumber) {
        alert("Access Granted! You win!");
-       counter++;
+       counter++; 
+       targetNumber = unlockNumber();
     } else {
         counter--;
         alert("You Lose!")
     };
+    userGuess = 0;
+    $("#userInput").html(userGuess)
 }
 
 //and that's that
